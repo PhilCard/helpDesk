@@ -1,26 +1,3 @@
-<?php
-    //require_once("validador_acesso.php");
-
-?>
-
-<?php
-  /*
-      $chamados = array();
-
-      $arquivo = fopen('arquivo.hd', 'r');
-
-      while(!feof($arquivo)){ //feof lê o final do arquivo
-
-        $registro = fgets($arquivo); //fgets captura o arquivo criado anteriormente com o fopen
-        $chamados[] = $registro;
-
-      }
-
-      fclose($arquivo);
-    */  
-     
-
-?>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -39,7 +16,7 @@
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="logoff.php"> Sair </a>
+          <a class="nav-link" href="inc/logoff.php"> Sair </a>
     </nav>
 
     <div class="container">    
@@ -52,31 +29,32 @@
             </div>
             
             <div class="card-body">
+
+            <?php require_once("admin/DB/connect.php");
             
-            <?php
-                foreach($chamados as $chamado){  
-            ?>
-            <?php
-                $chamado_dados = explode('#', $chamado); //explode elimina o caractere entre as aspas
+              $sql = 'SELECT titulo, categoria, descricao FROM chamados';
+              $result = mysqli_query($conn, $sql);
 
-                if (count($chamado_dados) < 3 ){
-                  continue;
-
-                }
+              if(mysqli_num_rows($result) > 0)
+              {
+                while($row = mysqli_fetch_assoc($result))
+                {
             ?>
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $chamado_dados[0] ?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado_dados[1]?></h6>
-                  <p class="card-text"><?= $chamado_dados[2]?></p>
+                  <h5 class="card-title"> <?= $row["titulo"]; ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"> <?= $row["categoria"] ?> </h6>
+                  <p class="card-text"> <?= $row["descricao"] ?> </p>
                 </div>
               </div>
               <?php
+              //
+                }
               }
               ?>
               <div class="row mt-5">
                 <div class="col-6">
-                <a class="btn btn-lg btn-warning btn-block" href="home.php">Voltar</a>
+                <a class="btn btn-lg btn-warning btn-block" href="inc/home.php">Voltar</a>
                 </div>
               </div>
             </div>
