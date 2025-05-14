@@ -54,6 +54,9 @@ O sistema permite que usuários autentiquem-se e gerenciem chamados de suporte t
 4. Acesse via navegador:  
    `http://localhost/nome-do-projeto`  
    ou em um servidor web na nuvem de sua preferência.
+5. **Login de acesso:**  
+   Usuário: `admin`  
+   Senha: `5268@`
 
 ## 🧰 Tecnologias Utilizadas
 
