@@ -55,7 +55,7 @@ O sistema permite que usuários autentiquem-se e gerenciem chamados de suporte t
    `http://localhost/nome-do-projeto`  
    ou em um servidor web na nuvem de sua preferência.
 5. **Login de acesso:**  
-   Usuário: `admin`  
+   Usuário: `admin@admin.com`  
    Senha: `5268@`
 
 ## 🧰 Tecnologias Utilizadas
